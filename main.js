@@ -35,24 +35,27 @@ window.addEventListener("keydown", (event) => {
 
     /*Aqui usamos os ifs para verificar a direção pressionada no momento*/
     /*Aqui, se o if for verdadeiro, então o boneco está indo para cima e diminuimos o tmanho da posição y dele para que posso subir */
-    if(key === "ArrowUp"){
+    /*também foi adicionado yPosition>=0 para que o boneco não passe da borda*/
+    if(key === "ArrowUp" && yPosition>=0){
         character.classList.add("turnUp");
         yPosition -= VELOCITY;
     }
 
     /*Já se este if for verdadeiro o boneco andará pra baixo e somaremos na sua posição y*/
-
-    if(key === "ArrowDown"){
+    /*também foi adicionado(yPosition + 230) < (SCREEN_HEIGHT) para que o boneco não passe da borda  */
+    if(key === "ArrowDown" && (yPosition + 230) < (SCREEN_HEIGHT)){
         character.classList.add("turnDown");
         yPosition += VELOCITY;
     }
     /*Se este if for verdadeiro, então o boneco andará para esquerda e sua posição x irá diminuir para que ele consiga se movimentar */
-    if(key === "ArrowLeft"){
+    /*também foi adicionado xPosition>=0 para que o boneco não passe da borda  */
+    if(key === "ArrowLeft" && xPosition>=0){
         character.classList.add("turnLeft");
         xPosition -= VELOCITY;
     }
     /*Agora, com este if verdadeiro o boneco irá se movimentar para direita já que estamos dua posição em x*/
-    if(key === "ArrowRight"){
+    /*também foi adicionado (xPosition + 90) < (SCREEN_WIDTH) para que o boneco não passe da borda  */
+    if(key === "ArrowRight" && (xPosition + 90) < (SCREEN_WIDTH)){
         character.classList.add("turnRight");
         xPosition += VELOCITY;
     }
