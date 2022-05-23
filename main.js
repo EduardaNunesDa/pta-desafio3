@@ -28,34 +28,35 @@ window.addEventListener("keydown", (event) => {
     })
     /*Caso não dispare, apenas retorne */
     if(!keyPressedAvaiable) return;
-
+    /*o forEache percorre todo o array direction, e então caso o array tenha um elemento do array direction ele é removido */
     directions.forEach((direction) => {
         if(character.classList.contains(direction)) character.classList.remove(direction);
     })
 
-
+    /*Aqui usamos os ifs para verificar a direção pressionada no momento*/
+    /*Aqui, se o if for verdadeiro, então o boneco está indo para cima e diminuimos o tmanho da posição y dele para que posso subir */
     if(key === "ArrowUp"){
         character.classList.add("turnUp");
         yPosition -= VELOCITY;
     }
 
-    /* comentando */
+    /*Já se este if for verdadeiro o boneco andará pra baixo e somaremos na sua posição y*/
 
     if(key === "ArrowDown"){
         character.classList.add("turnDown");
         yPosition += VELOCITY;
     }
-
+    /*Se este if for verdadeiro, então o boneco andará para esquerda e sua posição x irá diminuir para que ele consiga se movimentar */
     if(key === "ArrowLeft"){
         character.classList.add("turnLeft");
         xPosition -= VELOCITY;
     }
-
+    /*Agora, com este if verdadeiro o boneco irá se movimentar para direita já que estamos dua posição em x*/
     if(key === "ArrowRight"){
         character.classList.add("turnRight");
         xPosition += VELOCITY;
     }
-
+    /*usamos para atualizar a posição do boneco após encerrar os ifs, mudando sua posição top e left*/
     containerCharacter.style.top = `${yPosition}px`;
     containerCharacter.style.left = `${xPosition}px`
 });
